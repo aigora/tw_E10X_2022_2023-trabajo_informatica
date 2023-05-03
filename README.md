@@ -1,11 +1,15 @@
 # [Título del trabajo]
 
-[Descripción breve del proyecto a realizar (2-3 frases).]
+El trabajo que vamos a realizar tiene como fin:
+   - Mostrar los datos del consumo de energías 
+   - Agrupar y analizar fuentes de energía de mayor y menor consumo
 
 ## Integrantes del equipo
 
-[Nombres, apellidos, y usuario GitHub de los integrantes del equipo.]
+Álvaro Martín Castillo (AlvaroMartin3)
+Marcos Mariblanca Laguna (MarcosML02)
 
 ## Objetivos del trabajo
 
-[Lista de los objetivos que se persiguen con el trabajo propuesto.]
+Los objetivos al realizar este trabajo son obtener soltura a la hora del uso
+de la programación en C
