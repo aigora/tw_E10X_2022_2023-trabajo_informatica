@@ -8,6 +8,8 @@ El trabajo que vamos a realizar tiene como fin:
 
 Álvaro Martín Castillo(AlvaroMartin3)
 Marcos Mariblanca Laguna(MarcosML02)
+Ignacio Olivares Fiel(akkanach1312)
+Pablo Blamaseda 	Gila(fzpabloo)
 
 ## Objetivos del trabajo
 
