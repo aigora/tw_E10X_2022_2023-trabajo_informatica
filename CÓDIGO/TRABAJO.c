@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <locale.h>
-
 
 int creaTabla(char *filas[])
 {
@@ -14,346 +12,182 @@ void calculomedia(float matriz[500][500], float media[25]);
 
 int main()
 {
-    setlocale(LC_CTYPE, "spanish");
-    FILE *datos;
-    char matrizdatos[25][30][256];
-    int elegir1, elegir2, n = 0, i = 0,j, k, numcomas = 0, maxcomas = 0;
-    char c;
-    float matriz[500][500];
-    float media[25];
+
+FILE *datos;
+char matrizdatos[25][30][256];
+int elegir, n = 0, i = 0,j, k, numcomas = 0, maxcomas = 0;
+char c;
+float matriz[500][500];
+float media[25];
 
 
 
-    printf("*************************************\n");
-    printf("*    DATOS DE GENERACI√ìN EL√âCTRICA  *\n");
     printf("*************************************\n\n");
+    printf("*    DATOS DE GENERACI”N EL…CTRICA  *\n");
+    printf("*************************************\n\n");
+    printf("En el men˙ se muestran diferenciados por n˙meros las distintas estadÌsticas energÈticas\n\n");
+
+            datos = fopen("generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
 
 
-    datos = fopen("generacion_por_tecnologias_21_22_puntos_simplificado.csv", "r");
+if (datos == NULL)
+{
+printf("Fichero no abierto\n");
+
+}
+else
+{
+printf("Abierto correctamente\n\n");
+}
 
 
-    if (datos == NULL)
-        {
-            printf("Fichero no abierto\n");
-        }else{
-
-            printf("Fichero abierto correctamente\n\n");
-        }
-
-    printf("En el men√∫ se muestran diferenciados por n√∫meros las distintas estad√≠sticas energ√©ticas\n\n");
-
-
-    for ( i = 0; i < 25; i++)
-        {
-            for ( j = 0; j < 30; j++)
+for ( i = 0; i < 25; i++)
             {
-                for ( k = 0; k < 256; k++)
+for ( j = 0; j < 30; j++)
                 {
-                    matrizdatos[i][j][k] = 0;
+                    for ( k = 0; k < 256; k++)
+                    {
+                        matrizdatos[i][j][k] = 0;
+                    }
                 }
             }
-        }
 
-    while (!feof(datos))
-    {
+while (!feof(datos))
+{
+c = fgetc(datos);
+//printf("->%c<-\n", c);
 
-            c = fgetc(datos);
+if (c == ',')
+{
+matrizdatos[n][numcomas][i] = 0;
+//printf("-->%d<-->%d<-->%s<--\n", n, numcomas, matrizdatos[n][numcomas]);
+numcomas++;
+if (numcomas > maxcomas) maxcomas = numcomas;
+i = 0;
+continue;
+}
+else if (c == '\n')
+{
+//printf("----------------------------->%d<-------------------------------------------------\n", n);
+matrizdatos[n][numcomas][i] = 0;
+//printf("-->%d<-->%d<-->%s<--\n", n, numcomas, matrizdatos[n][numcomas]);
+numcomas++;
+if (numcomas > maxcomas) maxcomas = numcomas;
+n++;
+numcomas = 0;
+i = 0;
+//if (n > 4) break;
+}
+else
+{
+matrizdatos[n][numcomas][i++] = c;
+}
 
-            if (c == ',')
+}
+fclose(datos);
+
+
+
+   for (int i = 5; i < n; i++)
             {
-                matrizdatos[n][numcomas][i] = 0;
-                numcomas++;
-                if (numcomas > maxcomas) maxcomas = numcomas;
-                i = 0;
-                continue;
-            }
-            else if (c == '\n')
-            {
-                matrizdatos[n][numcomas][i] = 0;
-                numcomas++;
-                if (numcomas > maxcomas) maxcomas = numcomas;
-                n++;
-                numcomas = 0;
-                i = 0;
-            }
-            else
-            {
-                matrizdatos[n][numcomas][i++] = c;
-            }
-    }
-    fclose(datos);
-
-
-
-   for ( i = 5; i < n; i++)
-            {
-                for ( j = 0; j < maxcomas; j++)
+                for (int j = 0; j < maxcomas; j++)
                 {
                     matriz[i-5][j-1] = atof(matrizdatos[i][j]);
                 }
             }
 
-    do
-    {
-        //imprimimos menu para que elija el usuario
-        printf("1.-Mostrar datos ordenados del archivo:\n");
-        printf("2.-Estad√≠stica de la energia que mayor consumo presenta\n");
-        printf("3.-Seleccionar energia y mostrar su consumo por meses\n");
-        printf("4.-Calcular la media de consumo de una energ√≠a por meses\n");
-        printf("5.-Seleccionar una energia y mandarla a otro fichero\n");
-        printf("6.-¬øEn qu√© mes se produce mas energ√≠a entre todos los tipos de generaci√≥n?\n");
-        printf("7.-Ordenar consumo de mayor a menor de cada energ√≠a\n");
-        printf("8.-FIN\n\n\n");
+do
+{
+//imprimimos menu para que elija el usuario
 
-        printf("Introduzca un valor\n");
-        scanf_s("%d", &elegir1);
+   printf("1.-Cargar y mostrar datos del archivo:\n");
+printf("2.-Estadistica de la energia que mayor consumo presenta\n");
+printf("3.-Seleccionar energia y mostrar su consumo por meses\n");
+printf("4.-Calcular la media de consumo de una energÌa por meses\n");
+printf("5.-Seleccionar una energia y mandarla a otro fichero\n");
+printf("6.-øEn quÈ mes se produce mas energÌa entre todos los tipos de generaciÛn?\n");
+printf("7.-Ordenar consumo de mayor a menor de cada energÌa\n");
+printf("8.-FIN\n\n\n");
+
+printf("Introduzca un valor\n");
+//scanf("%d", &elegir);
+scanf_s("%d", &elegir);
 
 
-        switch (elegir1)
-        {
-            case 1:
+switch (elegir)
+{
+case 1:
+printf("Cargar y mostrar datos del archivo:\n");
+//datos = fopen("genera.txt", "r");
 
-                printf("Mostrar datos ordenados del archivo:\n");
+printf("Numero de lineas: %d\n", n);
+printf("Numero de columnas: %d\n", maxcomas);
 
-                //printf("Numero de lineas: %d\n", n);
-                //printf("Numero de columnas: %d\n", maxcomas);
+for (int i = 0; i < n; i++)
+{
+printf("LINEA[%d]:\n", i);
+for (int j = 0; j < maxcomas; j++)
+{
+printf("-->%s<--\n",matrizdatos[i][j]);
+}
+printf("-------------- FIN LINEA(%d) ----------------------\n", i);
+}
 
-                for ( i = 0; i < n; i++)
-                {
-                        printf("LINEA[%d]:\n", i);
-                        for (j = 0; j < maxcomas; j++)
-                        {
-                            printf("-->%s<--\n",matrizdatos[i][j]);
-                        }
-                     printf("-------------- FIN LINEA(%d) ----------------------\n", i);
-                }
-                printf("\n\n");
-                break;
+printf("\n\n");
+break;
+case 2:
+{
+printf("Estadistica de la energia que mayor consumo presenta\n");
 
-            case 2:
-                {
-                    printf("Estadistica de la energia que mayor consumo presenta\n");
-                    break;
-                }
-            case 3:
-                {
-                    printf("Seleccionar energia y mostrar su consumo por meses\n\n");
-                    printf("1.- HIDR√ÅULICA  \n");
-                    printf("2.- TURBINACI√ìN BOMBEO  \n");
-                    printf("3.- NUCLEAR  \n");
-                    printf("4.- CARB√ìN  \n");
-                    printf("5.- MOTORES DI√âSEL  \n");
-                    printf("6.- TURBINA DE GAS  \n");
-                    printf("7.- TURBINA DE VAPOR  \n");
-                    printf("8.- CICLO COMBINADO  \n");
-                    printf("9.- HIDROE√ìLICA  \n");
-                    printf("10.- E√ìLICA  \n");
-                    printf("11.- SOLAR FOTOVOLTAICA  \n");
-                    printf("12.- SOLAR T√âRMICA  \n");
-                    printf("13.- OTRAS RENOVABLES  \n");
+break;
+}
+case 3:
+{
+printf("Seleccionar energia y mostrar su consumo por meses\n");
+break;
+}
+case 4:
+{
+printf("Calcular la media de consumo de una energÌa total\n");
 
-                    do
-                    {
-                        scanf("%d", &elegir2);
-                        printf("*** PULSE 0 PARA SALIR AL MEN√ö***\n\n");
+calculomedia(matriz,media);
 
-                        switch(elegir2)
-                        {
+for (i = 5, j= 0; i < 18; i++, j++)
+            {
+                printf("%s ==>", matrizdatos[i]);
+                printf("%f\n", media[j]);
+            }
+            printf("\n\n");
+break;
+}
+case 5:
+{
+printf("Seleccionar una energia y mandarla a otro fichero\n");
+break;
+}
+case 6:
+{
+printf("øEn quÈ mes se produce mas energÌa entre todos los tipos de generaciÛn?\n");
+break;
+}
+case 7:
+{
+printf("Ordenar consumo de mayor a menor de cada energÌa\n");
+break;
+}
+case 8:
+{
+printf("FIN\n");
+return 0;
+}
+default:
+{
+printf("ERROR\n");
+}
+}
+} while (elegir != 8);
 
-                            case 1:
-                                printf(" HIDR√ÅULICA\n");
-                                printf("************\n");
-                                for(j = 1, k = 0; j<24, k <24; j++,k++)
-                                {
-                                    printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[0][k]);
-                                }
-                                printf("\n\n");
-                                break;
-                            case 2:
-                                {
-                                    printf(" TURBINA BOMBEO\n");
-                                    printf("****************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[1][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 3:
-                                {
-                                    printf(" NUCLEAR\n");
-                                    printf("*********\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[2][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 4:
-                                {
-                                    printf(" CARB√ìN\n");
-                                    printf("********\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[3][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 5:
-                                {
-                                    printf(" MOTORES DIESEL\n");
-                                    printf("****************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[4][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 6:
-                                {
-                                    printf(" TURBINA DE GAS\n");
-                                    printf("****************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[5][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 7:
-                                {
-                                    printf(" TURBINA DE VAPOR\n");
-                                    printf("******************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[6][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 8:
-                                {
-                                    printf(" CICLO COMBINADO\n");
-                                    printf("*****************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[7][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 9:
-                                {
-                                    printf(" HIDROE√ìLICA\n");
-                                    printf("*************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[8][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 10:
-                                {
-                                    printf(" E√ìLICA\n");
-                                    printf("********\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[9][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 11:
-                                {
-                                    printf(" SOLAR FOTOVOLTAICA\n");
-                                    printf("********************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[10][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 12:
-                                {
-                                    printf(" SOLAR T√âRMICA\n");
-                                    printf("***************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[11][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            case 13:
-                                {
-                                    printf(" OTRAS RENOVABLES\n");
-                                    printf("******************\n");
-                                    for (j = 1, k = 0; j < 24, k < 24; j++, k++)
-                                    {
-                                        printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[12][k]);
-                                    }
-                                    printf("\n\n");
-                                    break;
-                                }
-                            default:
-                                {
-                                    printf("No posible\n");
-                                }
-
-                        }
-                    }while (elegir2 != 0);
-
-                    break;
-                }
-            case 4:
-                {
-                    printf("Calcular la media de consumo de una energ√≠a total\n\n");
-                    calculomedia(matriz,media);
-
-                    for (i = 5, j= 0; i < 18; i++, j++)
-                        {
-                            printf("%s ==>", matrizdatos[i]);
-                            printf("%f\n", media[j]);
-                        }
-                    printf("\n\n");
-                    break;
-
-                }
-            case 5:
-                {
-                   printf("Seleccionar una energia y mandarla a otro fichero\n");
-                   break;
-                }
-            case 6:
-                {
-                    printf("¬øEn qu√© mes se produce mas energ√≠a entre todos los tipos de generaci√≥n?\n");
-                    break;
-                }
-            case 7:
-                {
-                    printf("Ordenar consumo de mayor a menor de cada energ√≠a\n");
-                    break;
-                }
-            case 8:
-                {
-                    printf("FIN\n");
-                    return 0;
-                }
-            default:
-                {
-                    printf("ERROR\n");
-                }
-        }
-
-    } while (elegir1 != 8);
-
-    return 0;
+return 0;
 }
 
 void calculomedia(float matriz[500][500], float media[25])
@@ -374,3 +208,5 @@ void calculomedia(float matriz[500][500], float media[25])
     }
 
 }
+
+
