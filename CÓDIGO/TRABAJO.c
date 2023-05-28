@@ -394,7 +394,7 @@ void calculomedia(float matriz[500][500], float media[25])
         for(j = 0; j < 24; j++)
         {
             suma[i] += matriz[i][j];
-          //  printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
+            printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
         }
 
         media[i] = suma[i] / 24;
