@@ -332,7 +332,19 @@ int main()
                 }
             case 6:
                 {
-                    printf("¿En qué mes se produce mas energía entre todos los tipos de generación?\n");
+                    printf("¿En qué mes se produce mas energía entre todos los tipos de generación?\n\n");
+
+                    printf("A continuación se mostrará la energia total producida por meses\n");
+
+                    for(j = 1, k = 0; j<24, k <24; j++,k++)
+                    {
+                        printf(" %s ==> %f(GWh)\n", matrizdatos[4][j], matriz[16][k]);
+                    }
+
+                    printf("\nORDENANDO LOS DATOS DE MAYOR A MENOR QUEDARÍA: \n\n");
+                    mayorconsumototal(matriz);
+
+
                     break;
                 }
             case 7:
@@ -361,16 +373,48 @@ void calculomedia(float matriz[500][500], float media[25])
     int i,j;
     float suma[25];
 
+    printf("DENTRO\n");
+
     for (i = 0; i<13; i++)
     {
         for(j = 0; j < 24; j++)
         {
             suma[i] += matriz[i][j];
-            //printf("Haciendo sumas %f\n", suma[i]);(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
+            printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
         }
 
         media[i] = suma[i] / 24;
-        printf("");
     }
 
+}
+
+void mayorconsumototal(float matriz [500][500])
+{
+    int i, j, mayor, a, c = 24;
+
+    for (i = 0; i < c - 1; i++)
+    {
+        mayor = i;
+
+        for (j = i + 1; j < c; j++)
+        {
+            if (matriz[16][j] > matriz[16][mayor])
+            {
+                mayor = j;
+            }
+        }
+
+        if (mayor != i)
+        {
+            a = matriz[16][i];
+            matriz[16][i] = matriz[16][mayor];
+            matriz[16][mayor] = a;
+        }
+
+    }
+
+    for (i = 0; i<24; i++)
+    {
+         printf(" %d >> %f(GWh)\n",i+1, matriz[16][i]);
+    }
 }
