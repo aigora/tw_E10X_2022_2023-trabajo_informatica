@@ -11,7 +11,9 @@ return(0);
 }
 
 void calculomedia(float matriz[500][500], float media[25]);
-
+void calculomediaresiduos(float matriz[500][500], float mediared[25]);
+void mayorconsumototal(float matriz [500][500]);
+void ordenar(float matriz[500][500], float orden[25]);
 int main()
 {
     setlocale(LC_CTYPE, "spanish");
@@ -107,12 +109,13 @@ int main()
         printf("0.-FIN\n\n\n");
 
         printf("Introduzca un valor\n");
-        scanf_s("%d", &elegir1);
+        scanf("%d", &elegir1);
 
 
         switch (elegir1)
         {
             case 1:
+            	
 
                 printf("Mostrar datos ordenados del archivo:\n");
 
@@ -351,6 +354,11 @@ int main()
             case 7:
                 {
                     printf("Ordenar consumo de mayor a menor de cada energía\n");
+                    float orden[25];
+                    ordenar(matriz,orden);
+                    //for(i=0;i<13;i++){
+                    //	printf("%f\n",orden[i]);
+					//}
                     break;
                 }
             case 8:
@@ -394,7 +402,7 @@ void calculomedia(float matriz[500][500], float media[25])
         for(j = 0; j < 24; j++)
         {
             suma[i] += matriz[i][j];
-            printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
+            //printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
         }
 
         media[i] = suma[i] / 24;
@@ -451,6 +459,96 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
 
         printf("");
     }
+    
+	}
+    
+    void ordenar(float matriz[500][500], float orden[25])
+{
+    int i,j,k=12;
+    float suma[25];
+    float mayor;
+   
+
+   // printf("DENTRO\n");
+
+    for (i = 0; i<13; i++)
+    {
+        for(j = 0; j < 24; j++)
+        {
+            suma[i] += matriz[i][j];
+            //printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
+        }
+
+        
+    }
+    
+   
+    for(i=0;i<13;i++){
+    	
+    	orden[i]=suma[i];
+	}
+	
+	 
+    
+    
+    	for( j=0; j<12; j++)
+	{
+		for (i=0; i < k; i++)
+		{
+			if (orden[i]< orden[i+1])
+				{
+				mayor = orden[i];
+				orden[i] =orden[i+1];
+				orden[i+1]=mayor;
+				}
+		}
+		k--;
+   	}
+   	
+   	for(i=0;i<13;i++){
+   		if(orden[i]==suma[0]){
+   			printf("hidraulica=>");
+		   }
+		   else if (orden[i]==suma[1]){
+		   	printf("TURBINA BOMBEO=>");
+		   }
+		    else if (orden[i]==suma[2]){
+		   	printf("NUCLEAR=>");
+		   }
+		    else if (orden[i]==suma[3]){
+		   	printf("CARBON=>");
+		   }
+		    else if (orden[i]==suma[4]){
+		   	printf("MOTOR DIESEL=>");
+		   }
+		    else if (orden[i]==suma[5]){
+		   	printf("TURBINA DE GAS=>");
+		   }
+		    else if (orden[i]==suma[6]){
+		   	printf("TURBINA DE VAPOR=>");
+		   }
+		    else if (orden[i]==suma[7]){
+		   	printf("CICLO CONBINADO=>");
+		   }
+		    else if (orden[i]==suma[8]){
+		   	printf("HIDROEOLICA=>");
+		   }
+		    else if (orden[i]==suma[9]){
+		   	printf("EOLICA=>");
+		   }
+		    else if (orden[i]==suma[10]){
+		   	printf("SOLAR FOTOVOLTAICA=>");
+		   }
+		    else if (orden[i]==suma[11]){
+		   	printf("SOLAR TERMICA");
+		   }
+		    else if (orden[i]==suma[12]){
+		   	printf("OTRAS RENOVABLES=>");
+		   }
+		   
+       	printf("%f\n",orden[i]);
+					}
+
 
 }
 
