@@ -99,7 +99,7 @@ int main()
     {
         //imprimimos menu para que elija el usuario
         printf("1.-Mostrar datos ordenados del archivo:\n");
-        printf("2.-Estadística de la energia que mayor consumo presenta\n");
+        printf("2.-Número de viviendas \n");
         printf("3.-Seleccionar energia y mostrar su consumo por meses\n");
         printf("4.-Calcular la media de consumo de una energía por meses\n");
         printf("5.-Seleccionar una energia y mandarla a otro fichero\n");
@@ -115,7 +115,7 @@ int main()
         switch (elegir1)
         {
             case 1:
-            	
+
 
                 printf("Mostrar datos ordenados del archivo:\n");
 
@@ -171,7 +171,7 @@ int main()
                                 {
                                     printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[0][k]);
                                 }
-                                printf("\n\n");
+                                printf("\n");
                                 break;
                             case 2:
                                 {
@@ -181,7 +181,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[1][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 3:
@@ -192,7 +192,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[2][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 4:
@@ -203,7 +203,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[3][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 5:
@@ -214,7 +214,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[4][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 6:
@@ -225,7 +225,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[5][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 7:
@@ -236,7 +236,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[6][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 8:
@@ -247,7 +247,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[7][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 9:
@@ -258,7 +258,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[8][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 10:
@@ -269,7 +269,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[9][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 11:
@@ -280,7 +280,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[10][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 12:
@@ -291,7 +291,7 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[11][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             case 13:
@@ -302,12 +302,12 @@ int main()
                                     {
                                         printf("%s ==> %f(GWh)\n", matrizdatos[4][j], matriz[12][k]);
                                     }
-                                    printf("\n\n");
+                                    printf("\n");
                                     break;
                                 }
                             default:
                                 {
-                                    printf("No posible\n");
+                                    //printf("No posible\n");
                                 }
 
                         }
@@ -395,8 +395,6 @@ void calculomedia(float matriz[500][500], float media[25])
     int i,j;
     float suma[25];
 
-    printf("DENTRO\n");
-
     for (i = 0; i<13; i++)
     {
         for(j = 0; j < 24; j++)
@@ -459,15 +457,15 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
 
         printf("");
     }
-    
+
 	}
-    
+
     void ordenar(float matriz[500][500], float orden[25])
 {
     int i,j,k=12;
     float suma[25];
     float mayor;
-   
+
 
    // printf("DENTRO\n");
 
@@ -479,18 +477,18 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
             //printf("Haciendo sumas %f\n", suma[i]);//(COMPROBAMOS QUE SE REALIZAN LAS SUMAS DE FORMA CORRECTA)
         }
 
-        
+
     }
-    
-   
+
+
     for(i=0;i<13;i++){
-    	
+
     	orden[i]=suma[i];
 	}
-	
-	 
-    
-    
+
+
+
+
     	for( j=0; j<12; j++)
 	{
 		for (i=0; i < k; i++)
@@ -504,10 +502,10 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
 		}
 		k--;
    	}
-   	
+
    	for(i=0;i<13;i++){
    		if(orden[i]==suma[0]){
-   			printf("hidraulica=>");
+   			printf("HIDRÁULICA=>");
 		   }
 		   else if (orden[i]==suma[1]){
 		   	printf("TURBINA BOMBEO=>");
@@ -545,11 +543,10 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
 		    else if (orden[i]==suma[12]){
 		   	printf("OTRAS RENOVABLES=>");
 		   }
-		   
+
        	printf("%f\n",orden[i]);
 					}
+        printf("\n\n");
 
 
 }
-
-
