@@ -14,15 +14,17 @@ void calculomedia(float matriz[500][500], float media[25]);
 void calculomediaresiduos(float matriz[500][500], float mediared[25]);
 void mayorconsumototal(float matriz [500][500]);
 void ordenar(float matriz[500][500], float orden[25]);
+
 int main()
 {
     setlocale(LC_CTYPE, "spanish");
     FILE *datos;
     char matrizdatos[25][30][256];
-    int elegir1, elegir2, n = 0, i = 0,j, k, numcomas = 0, maxcomas = 0;
+    int elegir1, elegir2, elegir3, n = 0, i = 0,j, k, numcomas = 0, maxcomas = 0;
     char c;
     float matriz[500][500];
     float media[25], mediared[25];
+
 
 
 
@@ -99,13 +101,12 @@ int main()
     {
         //imprimimos menu para que elija el usuario
         printf("1.-Mostrar datos ordenados del archivo:\n");
-        printf("2.-Número de viviendas \n");
-        printf("3.-Seleccionar energia y mostrar su consumo por meses\n");
+        printf("2.-¿Cuál es el porcentaje de generación según el mes de cada energía?\n");
+        printf("3.-Seleccionar energia y mostrar generación por meses\n");
         printf("4.-Calcular la media de consumo de una energía por meses\n");
-        printf("5.-Seleccionar una energia y mandarla a otro fichero\n");
-        printf("6.-¿En qué mes se produce mas energía entre todos los tipos de generación?\n");
-        printf("7.-Ordenar consumo de mayor a menor de cada energía\n");
-        printf("8.-Calcular la media de cada residuos\n");
+        printf("5.-¿En qué mes se produce mas energía entre todos los tipos de generación?\n");
+        printf("6.-Ordenar consumo de mayor a menor de cada energía\n");
+        printf("7.-Calcular la media de cada residuos\n");
         printf("0.-FIN\n\n\n");
 
         printf("Introduzca un valor\n");
@@ -136,12 +137,241 @@ int main()
 
             case 2:
                 {
-                    printf("Estadistica de la energia que mayor consumo presenta\n");
+                    printf("¿Cuál es el porcentaje de generación según el mes de cada energía?\n");
+                    printf("Elige el mes que desee entre los años 2021 y 2022\n");
+
+                        printf("1.- 1/2021\n");
+                        printf("2.- 2/2021\n");
+                        printf("3.- 3/2021\n");
+                        printf("4.- 4/2021\n");
+                        printf("5.- 5/2021\n");
+                        printf("6.- 6/2021\n");
+                        printf("7.- 7/2021\n");
+                        printf("8.- 8/2021\n");
+                        printf("9.- 9/2021\n");
+                        printf("10.- 10/2021\n");
+                        printf("11.- 11/2021\n");
+                        printf("12.- 12/2021\n\n");
+
+                        printf("13.- 1/2022\n");
+                        printf("14.- 2/2022\n");
+                        printf("15.- 3/2022\n");
+                        printf("16.- 4/2022\n");
+                        printf("17.- 5/2022\n");
+                        printf("18.- 6/2022\n");
+                        printf("19.- 7/2022\n");
+                        printf("20.- 8/2022\n");
+                        printf("21.- 9/2022\n");
+                        printf("22.- 10/2022\n");
+                        printf("23.- 11/2022\n");
+                        printf("24.- 12/2022\n\n");
+
+                        printf("**PULSE 0 PARA SALIR AL MENÚ**\n");
+
+                    do
+                    {
+
+                        scanf("%d", &elegir3);
+
+                        switch(elegir3)
+                        {
+                        case 1:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f\n", matrizdatos[i][0] ,matriz[j][0]/24305.47495*100);
+                                }
+                            break;
+                            }
+                        case 2:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][1]/21134.389784*100);
+                                }
+                            break;
+                            }
+                        case 3:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][2]/22097.189386*100);
+                                }
+                            break;
+                            }
+                        case 4:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][3]/19900.364428999*100);
+                                }
+                            break;
+                            }
+                        case 5:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][4]/20471.481075*100);
+                                }
+                            break;
+                            }
+                        case 6:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][5]/19863.791971*100);
+                                }
+                            break;
+                            }
+                        case 7:
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][6]/22436.768607*100);
+                                }
+                            break;
+                        case 8:
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][7]/21585.235814*100);
+                                }
+                            break;
+                        case 9:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][8]/20688.86822*100);
+                                }
+                            break;
+                            }
+                        case 10:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][9]/20634.64191*100);
+                                }
+                            break;
+                            }
+                        case 11:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][10]/23017.698421*100);
+                                }
+                            break;
+                            }
+                        case 12:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][11]/23875.280879*100);
+                                }
+                            break;
+                            }
+                        case 13:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][12]/24302.335181*100);
+                                }
+                            break;
+                            }
+                        case 14:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][13]/21120.725026*100);
+                                }
+                            break;
+                            }
+                        case 15:
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][14]/22758.010234*100);
+                                }
+                            break;
+                        case 16:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][15]/21751.098819*100);
+                                }
+                            break;
+                            }
+                        case 17:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][16]/22084.406638*100);
+                                }
+                            break;
+                            }
+                        case 18:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][17]/23242.456504*100);
+                                }
+                            break;
+                            }
+                        case 19:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][18]/26409.488103*100);
+                                }
+                            break;
+                            }
+                        case 20:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][19]/25284.7418*100);
+                                }
+                            break;
+                            }
+                        case 21:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][20]/23658.54689899*100);
+                                }
+                            break;
+                            }
+                        case 22:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][21]/21941.569779*100);
+                                }
+                            break;
+                            }
+                        case 23:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][22]/21564.342557*100);
+                                }
+                            break;
+                            }
+                        case 24:
+                            {
+                                for(i = 5, j = 0; i < 22, j <16 ; i++, j++)
+                                {
+                                    printf("%s ==> %f \n", matrizdatos[i][0], matriz[j][23]/22197.557015*100);
+                                }
+                            break;
+                            }
+
+
+                        }
+
+                    }while (elegir3 != 0);
+
                     break;
                 }
             case 3:
                 {
-                    printf("Seleccionar energia y mostrar su consumo por meses\n\n");
+                    printf("Seleccionar energia y mostrar generación por meses\n\n");
                     printf("1.- HIDRÁULICA  \n");
                     printf("2.- TURBINACIÓN BOMBEO  \n");
                     printf("3.- NUCLEAR  \n");
@@ -329,12 +559,8 @@ int main()
                     break;
 
                 }
+
             case 5:
-                {
-                   printf("Seleccionar una energia y mandarla a otro fichero\n");
-                   break;
-                }
-            case 6:
                 {
                     printf("¿En qué mes se produce mas energía entre todos los tipos de generación?\n\n");
 
@@ -351,9 +577,9 @@ int main()
 
                     break;
                 }
-            case 7:
+            case 6:
                 {
-                    printf("Ordenar consumo de mayor a menor de cada energía\n");
+                    printf("Ordenar generación de mayor a menor de cada energía\n");
                     float orden[25];
                     ordenar(matriz,orden);
                     //for(i=0;i<13;i++){
@@ -361,7 +587,7 @@ int main()
 					//}
                     break;
                 }
-            case 8:
+            case 7:
                 {
                     printf("Cálculo de la media de residuos\n");
                     calculomediaresiduos(matriz,mediared);
@@ -467,8 +693,6 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
     float mayor;
 
 
-   // printf("DENTRO\n");
-
     for (i = 0; i<13; i++)
     {
         for(j = 0; j < 24; j++)
@@ -550,3 +774,5 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
 
 
 }
+
+
