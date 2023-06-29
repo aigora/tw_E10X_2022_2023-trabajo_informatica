@@ -824,5 +824,3 @@ void beneficioaprox (float matriz[500][500], float beneficio[25])
 
    
 }
-
-
