@@ -29,7 +29,7 @@ int main()
 
 
     printf("*************************************\n");
-    printf("*    DATOS DE GENERACI?N EL?CTRICA  *\n");
+    printf("*    DATOS DE GENERACIÓN ELÉCTRICA  *\n");
     printf("*************************************\n\n");
 
 
@@ -52,7 +52,7 @@ int main()
             printf("Fichero abierto correctamente\n\n");
         }
 
-    printf("En el men? se muestran diferenciados por n?meros las distintas estad?sticas energ?ticas\n\n");
+    printf("En el menú se muestran diferenciados por números las distintas estadísticas energéticas\n\n");
 
 
     for ( i = 0; i < 25; i++)
@@ -111,10 +111,10 @@ int main()
         printf("1.-Mostrar datos ordenados del archivo:\n");
         printf("2.-Beneficio de cada energia\n");
         printf("3.-Seleccionar energia y mostrar su consumo por meses\n");
-        printf("4.-Calcular la media de consumo de una energ?a por meses\n");
+        printf("4.-Calcular la media de consumo de una energía por meses\n");
         
-        printf("5.-?En qu? mes se produce mas energ?a entre todos los tipos de generaci?n?\n");
-        printf("6.-Ordenar consumo de mayor a menor de cada energ?a\n");
+        printf("5.-¿En qué mes se produce mas energía entre todos los tipos de generación?\n");
+        printf("6.-Ordenar consumo de mayor a menor de cada energía\n");
         printf("7.-Calcular la mmedia de cada residuos\n");
         printf("0.-FIN\n\n\n");
 
@@ -143,7 +143,7 @@ int main()
                 }
                 printf("\n\n");
                 
-                printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+                printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o1);
                 if(o1==1){
                 	  for ( i = 0; i < n; i++)
@@ -163,8 +163,8 @@ int main()
             case 2:
                 {
                     printf("Beneficio obtenido aproximado\n");
-                    printf("Sabiendo que el precio del KW/h en Espa?a cuesta alrededor de 0,12 euros (aunque var?a dependiendo del d?a y franja horaria)\n");
-                    printf("El beneficio obtenido por meses de las diferentes formas de generaci?n de energ?a es el siguiente: \n");
+                    printf("Sabiendo que el precio del KW/h en España cuesta alrededor de 0,12 euros (aunque varía dependiendo del día y franja horaria)\n");
+                    printf("El beneficio obtenido por meses de las diferentes formas de generación de energía es el siguiente: \n");
 
                     beneficioaprox(matriz, beneficio);
 
@@ -174,7 +174,7 @@ int main()
                             printf("%f\n", beneficio[j]);
                         }
                     printf("\n\n");
-                    printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+                    printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o2);
                 if(o2==1){
                 	fprintf(f,"\nlos beneficios totales de cada energia son:\n");
@@ -196,30 +196,30 @@ int main()
             case 3:
                 {
                     printf("Seleccionar energia y mostrar su consumo por meses\n\n");
-                    printf("1.- HIDR?ULICA  \n");
-                    printf("2.- TURBINACI?N BOMBEO  \n");
+                    printf("1.- HIDRÁULICA  \n");
+                    printf("2.- TURBINACIÓN BOMBEO  \n");
                     printf("3.- NUCLEAR  \n");
-                    printf("4.- CARB?N  \n");
-                    printf("5.- MOTORES DI?SEL  \n");
+                    printf("4.- CARBÓN  \n");
+                    printf("5.- MOTORES DIÉSEL  \n");
                     printf("6.- TURBINA DE GAS  \n");
                     printf("7.- TURBINA DE VAPOR  \n");
                     printf("8.- CICLO COMBINADO  \n");
-                    printf("9.- HIDROE?LICA  \n");
-                    printf("10.- E?LICA  \n");
+                    printf("9.- HIDROEÓLICA  \n");
+                    printf("10.- EÓLICA  \n");
                     printf("11.- SOLAR FOTOVOLTAICA  \n");
-                    printf("12.- SOLAR T?RMICA  \n");
+                    printf("12.- SOLAR TÉRMICA  \n");
                     printf("13.- OTRAS RENOVABLES  \n");
 
                     do
                     {
                         scanf("%d", &elegir2);
-                        printf("*** PULSE 0 PARA SALIR AL MEN?***\n\n");
+                        printf("*** PULSE 0 PARA SALIR AL MENÚ***\n\n");
 
                         switch(elegir2)
                         {
 
                             case 1:
-                                printf(" HIDR?ULICA\n");
+                                printf(" HIDRÁULICA\n");
                                 printf("************\n");
                                 for(j = 1, k = 0; j<24, k <24; j++,k++)
                                 {
@@ -251,7 +251,7 @@ int main()
                                 }
                             case 4:
                                 {
-                                    printf(" CARB?N\n");
+                                    printf(" CARBÓN\n");
                                     printf("********\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -306,7 +306,7 @@ int main()
                                 }
                             case 9:
                                 {
-                                    printf(" HIDROE?LICA\n");
+                                    printf(" HIDROEÓLICA\n");
                                     printf("*************\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -317,7 +317,7 @@ int main()
                                 }
                             case 10:
                                 {
-                                    printf(" E?LICA\n");
+                                    printf(" EÓLICA\n");
                                     printf("********\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -339,7 +339,7 @@ int main()
                                 }
                             case 12:
                                 {
-                                    printf(" SOLAR T?RMICA\n");
+                                    printf(" SOLAR TÉRMICA\n");
                                     printf("***************\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -367,11 +367,11 @@ int main()
                         }
                     }while (elegir2 != 0);
                     
-                    printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+                    printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o3);
                 if(o3==1){
                 	fprintf(f,"\nla energia proporcionada de cada tipo de energia por mes:\n");
-                	fprintf(f," HIDR?ULICA\n");
+                	fprintf(f," HIDRÁULICA\n");
                                 fprintf(f,"************\n");
                                 for(j = 1, k = 0; j<24, k <24; j++,k++)
                                 {
@@ -398,7 +398,7 @@ int main()
                                     fprintf(f,"\n");
                 	
                 	
-                	fprintf(f," CARB?N\n");
+                	fprintf(f," CARBÓN\n");
                                     fprintf(f,"********\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -443,7 +443,7 @@ int main()
                                     fprintf(f,"\n");
                 	
                 	
-                	  fprintf(f," HIDROE?LICA\n");
+                	  fprintf(f," HIDROEÓLICA\n");
                                     fprintf(f,"*************\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -452,7 +452,7 @@ int main()
                                     fprintf(f,"\n");
                 	
                 	
-                	fprintf(f," E?LICA\n");
+                	fprintf(f," EÓLICA\n");
                                     fprintf(f,"********\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -470,7 +470,7 @@ int main()
                                     fprintf(f,"\n");
                 	
                 	
-                	 fprintf(f," SOLAR T?RMICA\n");
+                	 fprintf(f," SOLAR TÉRMICA\n");
                                     fprintf(f,"***************\n");
                                     for (j = 1, k = 0; j < 24, k < 24; j++, k++)
                                     {
@@ -492,7 +492,7 @@ int main()
                 }
             case 4:
                 {
-                    printf("Calcular la media de consumo de una energ?a total\n\n");
+                    printf("Calcular la media de consumo de una energía total\n\n");
                     calculomedia(matriz,media);
 
                     for (i = 5, j= 0; i < 18; i++, j++)
@@ -501,7 +501,7 @@ int main()
                             printf("%f\n", media[j]);
                         }
                     printf("\n\n");
-                    printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+                    printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o4);
                 if(o4==1){
                 	fprintf(f,"\nla media de energia producida por mes de cada energia:\n");
@@ -518,18 +518,18 @@ int main()
             
             case 5:
                 {
-                    printf("?En qu? mes se produce mas energ?a entre todos los tipos de generaci?n?\n\n");
+                    printf("¿En qué mes se produce mas energía entre todos los tipos de generación?\n\n");
 
-                    printf("A continuaci?n se mostrar? la energia total producida por meses\n");
+                    printf("A continuación se mostrará la energia total producida por meses\n");
 
                     for(j = 1, k = 0; j<24, k <24; j++,k++)
                     {
                         printf(" %s ==> %f(GWh)\n", matrizdatos[4][j], matriz[16][k]);
                     }
 
-                    printf("\nORDENANDO LOS DATOS DE MAYOR A MENOR QUEDAR?A: \n\n");
+                    printf("\nORDENANDO LOS DATOS DE MAYOR A MENOR QUEDARÍA: \n\n");
                     mayorconsumototal(matriz);
-                    printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+                    printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o5);
                 if(o5==1){
                 	fprintf(f,"\nel mes que mas energia se produce entre todas las energias:\n");
@@ -544,20 +544,20 @@ int main()
                 }
             case 6:
                 {
-                    printf("Ordenar consumo de mayor a menor de cada energ?a\n");
+                    printf("Ordenar consumo de mayor a menor de cada energía\n");
                     float orden[25];
                     ordenar(matriz,orden);
                     //for(i=0;i<13;i++){
                     //	printf("%f\n",orden[i]);
 					//}
 					
-					 printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+					 printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o6);
                 if(o6==1){
                 	fprintf(f,"\nenergias ordenadas por su consumo de manera decreciente:\n");
                 	for(i=0;i<13;i++){
    		if(orden[i]==suma[0]){
-   			fprintf(f,"HIDR?ULICA=>");
+   			fprintf(f,"HIDRÁULICA=>");
 		   }
 		   else if (orden[i]==suma[1]){
 		   	fprintf(f,"TURBINA BOMBEO=>");
@@ -605,7 +605,7 @@ int main()
                 }
             case 7:
                 {
-                    printf("C?lculo de la media de residuos\n");
+                    printf("Cálculo de la media de residuos\n");
                     calculomediaresiduos(matriz,mediared);
 
                     for (i = 19, j= 14; i < 21; i++, j++)
@@ -615,7 +615,7 @@ int main()
                         }
                     printf("\n\n");
                     
-                    	 printf("?Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
+                    	 printf("¿Quieres registrar los resultados en el fichero? (1=si, 2=no)\n");
                 scanf("%i",&o7);
                 if(o7==1){
                 	fprintf(f,"\nmedia de resios producidos al mes:\n");
@@ -759,7 +759,7 @@ void calculomediaresiduos(float matriz[500][500], float mediared[25])
 
    	for(i=0;i<13;i++){
    		if(orden[i]==suma[0]){
-   			printf("HIDR?ULICA=>");
+   			printf("HIDRÁULICA=>");
 		   }
 		   else if (orden[i]==suma[1]){
 		   	printf("TURBINA BOMBEO=>");
